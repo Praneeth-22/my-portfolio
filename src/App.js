@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
+import ClearRoundedIcon from "@mui/icons-material/ClearRounded";
+import "./App.css";
+import { useState } from "react";
+
 
 function App() {
+  const [menuIsOpen, setMenuIsOpen] = useState(false);
+
+  const Options = () => {
+    return (
+      <div className="options">
+        <div className="close-bar">
+          <ClearRoundedIcon id="close-icon" onClick={()=>setMenuIsOpen(false)} />
+        </div>
+        <div className="option-bar">
+          <div className="project">Home</div>
+          <div className="about">About</div>
+          <div className="contact">Contact</div>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className={`menu-bar ${menuIsOpen ? "open" : ""}`}>
+        {menuIsOpen ? (<Options /> ): (<MenuRoundedIcon id="menu-icon" onClick={()=> setMenuIsOpen(true)} />)}
+      </div>
     </div>
   );
 }
