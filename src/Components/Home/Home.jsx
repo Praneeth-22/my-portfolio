@@ -5,6 +5,9 @@ import { useState } from "react";
 import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 import Cards from "./Cards/Cards";
+//import react router dom
+// import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 function Home() {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
 
@@ -19,7 +22,12 @@ function Home() {
         </div>
         <div className="option-bar">
           <div className="project">Home</div>
-          <div className="about">About</div>
+          <div className="about">
+          <Link to="/about" style={{
+            textDecoration: 'none',
+            color: 'black'
+          }}>About</Link>
+          </div>
           <div className="contact">Contact</div>
         </div>
       </div>
@@ -42,13 +50,13 @@ function Home() {
         <span className="Desc">sssssssssssssssssssssssss</span>
         <div className="select">
           <Stack direction="row" spacing={1}>
-            <Chip label="Show All" />
-            <Chip label="Front-End" />
-            <Chip label="Back-End" />
-            <Chip label="ReactJS" />
-            <Chip label="Machine Learning" />
-            <Chip label="Python" />
-            <Chip label="Operating System" />
+            <Chip variant="outlined" label="Show All" />
+            <Chip variant="outlined" label="Front-End" />
+            <Chip variant="outlined" label="Back-End" />
+            <Chip variant="outlined" label="ReactJS" />
+            <Chip variant="outlined" label="Machine Learning" />
+            <Chip variant="outlined" label="Python" />
+            <Chip variant="outlined" label="Operating System" />
           </Stack>
         </div>
         <Cards />
